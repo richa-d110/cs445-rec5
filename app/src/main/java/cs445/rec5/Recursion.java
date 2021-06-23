@@ -67,6 +67,13 @@ public class Recursion {
      */
     private static <T> void reverse(T[] arr, int start, int end) {
         // TODO: Complete this method using recursion.
+        
+        if(start < end){
+            swap(arr, start, end - 1);
+            reverse(arr, start+1, end - 1);
+        }
+        //implicit base case - when start and end have the same index or start > end 
+          
     }
 
     /**
@@ -95,7 +102,14 @@ public class Recursion {
      */
     private static MinMax findMinMax(int[] nums, int start, int end){
         // TODO: Complete this method using recursion.
-        return null;
+        if(start + 1 == end){
+            return new MinMax(nums[start], nums[start]);
+        }
+        else{
+            findMinMax(nums, start+1, end);
+            return new MinMax(Math.min(nums[start], curr.min), Math.max(nums[start], curr.max));
+        }
+        
     }
 
 }
